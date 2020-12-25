@@ -10,6 +10,7 @@ import Foundation
 
 struct Movie: Decodable {
     let title: String
+    let posterImage: String
     let genre: Genre
     
     enum Genre: Decodable {

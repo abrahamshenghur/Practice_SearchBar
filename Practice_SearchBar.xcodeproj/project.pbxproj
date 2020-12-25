@@ -15,6 +15,7 @@
 		52FC2816259066B70010FC8F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC2815259066B70010FC8F /* UIView+Ext.swift */; };
 		52FC281C259067580010FC8F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC281B259067580010FC8F /* Movie.swift */; };
 		52FC28202591393A0010FC8F /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 52FC281F2591393A0010FC8F /* movies.json */; };
+		52FC28222595A1470010FC8F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC28212595A1470010FC8F /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		52FC2815259066B70010FC8F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		52FC281B259067580010FC8F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		52FC281F2591393A0010FC8F /* movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		52FC28212595A1470010FC8F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		52FC2819259066F10010FC8F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				52FC28212595A1470010FC8F /* DetailViewController.swift */,
 				52FC2803259056F60010FC8F /* ViewController.swift */,
 			);
 			path = ViewControllers;
@@ -187,6 +190,7 @@
 				52FC2816259066B70010FC8F /* UIView+Ext.swift in Sources */,
 				52FC2804259056F60010FC8F /* ViewController.swift in Sources */,
 				52FC2802259056F60010FC8F /* AppDelegate.swift in Sources */,
+				52FC28222595A1470010FC8F /* DetailViewController.swift in Sources */,
 				52FC2814259066600010FC8F /* MovieCell.swift in Sources */,
 				52FC281C259067580010FC8F /* Movie.swift in Sources */,
 			);

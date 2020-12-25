@@ -39,6 +39,15 @@ class ViewController: UIViewController, UISearchResultsUpdating {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    
     func fetchMovies() -> [Movie] {
         if let url = Bundle.main.url(forResource: "movies", withExtension: "json") {
             do {
@@ -113,7 +122,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             movie = movies[indexPath.row]
         }
-        
+
         cell.titleLabel.text = movie.title
         cell.genreLabel.text = movie.genre.rawValue
         
@@ -122,7 +131,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: - present navigation controller for detail view
+        let destVC = DetailViewController()                                                     // 13
+        
+        if isFiltering {
+            destVC.imageName = filteredMovies[indexPath.row]
+        } else {
+            destVC.imageName = movies[indexPath.row]
+        }
+        
+        self.navigationController?.pushViewController(destVC, animated: true)
     }
 }
 

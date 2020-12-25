@@ -1,22 +1,27 @@
 [
     {
         "title": "Goldeneye",
-        "genre": "Action"
+        "genre": "Action",
+        "posterImage": "goldeneye"
     },
     {
         "title": "Dumb and Dumber",
-        "genre": "Comedy"
+        "genre": "Comedy",
+        "posterImage": "dumb-and-dumber"
     },
     {
         "title": "Halloween",
-        "genre": "Horror"
+        "genre": "Horror",
+        "posterImage": "halloween"
     },
     {
         "title": "Taken",
-        "genre": "Thriller"
+        "genre": "Thriller",
+        "posterImage": "taken"
     },
     {
         "title": "National Security",
-        "genre": "Comedy"
+        "genre": "Comedy",
+        "posterImage": "national-security"
     },
 ]
