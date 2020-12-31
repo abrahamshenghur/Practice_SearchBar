@@ -23,7 +23,7 @@ struct Movie: Decodable {
 }
 
 
-extension Movie.Genre: RawRepresentable {
+extension Movie.Genre: RawRepresentable, CaseIterable {
     typealias RawValue = String
     
     init?(rawValue: RawValue) {
