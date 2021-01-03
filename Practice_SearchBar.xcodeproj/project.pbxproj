@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524D3910259EE4A50094782D /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524D390F259EE4A50094782D /* SearchFooter.swift */; };
 		52FC2802259056F60010FC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC2801259056F60010FC8F /* AppDelegate.swift */; };
 		52FC2804259056F60010FC8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC2803259056F60010FC8F /* ViewController.swift */; };
 		52FC2809259056F80010FC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FC2808259056F80010FC8F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		524D390F259EE4A50094782D /* SearchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
 		52FC27FE259056F60010FC8F /* Practice_SearchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice_SearchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC2801259056F60010FC8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC2803259056F60010FC8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524D3911259EE4AE0094782D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				524D390F259EE4A50094782D /* SearchFooter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		52FC27F5259056F60010FC8F = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 				52FC2817259066D50010FC8F /* Extensions */,
 				52FC281D2590679B0010FC8F /* Model */,
 				52FC2819259066F10010FC8F /* ViewControllers */,
+				524D3911259EE4AE0094782D /* Views */,
 				52FC2818259066E90010FC8F /* Cells */,
 				52FC281A2590670A0010FC8F /* Support */,
 				52FC280D259056F80010FC8F /* Info.plist */,
@@ -193,6 +204,7 @@
 				52FC28222595A1470010FC8F /* DetailViewController.swift in Sources */,
 				52FC2814259066600010FC8F /* MovieCell.swift in Sources */,
 				52FC281C259067580010FC8F /* Movie.swift in Sources */,
+				524D3910259EE4A50094782D /* SearchFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

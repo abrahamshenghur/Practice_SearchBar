@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     var tableView = UITableView()
     let searchController = UISearchController(searchResultsController: nil)                     // 2
+    let searchFooter = SearchFooter()                                                                               // 23
+    var searchFooterBottomConstraint = NSLayoutConstraint()                                                         // 26
     
     var movies: [Movie] = []                                                                    // 1
     var filteredMovies: [Movie] = []                                                            // 5
@@ -38,8 +40,10 @@ class ViewController: UIViewController {
         movies = fetchMovies()
         configureTableView()
         configureSearchController()
+        configureSearchFooter()
+        addSearchFooterObservers()
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,7 +93,52 @@ class ViewController: UIViewController {
         searchController.searchBar.delegate = self                                                                  // 22
     }
     
-   
+    
+    func configureSearchFooter() {
+        view.addSubview(searchFooter)
+        let searchBottomConstraint = searchFooter.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        self.searchFooterBottomConstraint = searchBottomConstraint
+
+        NSLayoutConstraint.activate([
+            searchFooter.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchFooter.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.searchFooterBottomConstraint,
+            searchFooter.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
+    
+    
+    func addSearchFooterObservers() {                                                                               // 24
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillChangeFrameNotification, object: nil, queue: .main) { (notification) in
+            self.handleKeyboard(notification: notification)
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
+            self.handleKeyboard(notification: notification)
+        }
+    }
+    
+    
+    func handleKeyboard(notification: Notification) {                                                               // 25
+        guard notification.name == UIResponder.keyboardWillChangeFrameNotification else {
+            searchFooterBottomConstraint.constant = 0
+            view.layoutIfNeeded()
+            return
+        }
+        
+        guard let info = notification.userInfo, let keyboardFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardHeight = keyboardFrame.cgRectValue.size.height
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            self.searchFooterBottomConstraint.constant = -keyboardHeight
+            self.view.layoutIfNeeded()
+        })
+    }
+}
+
+
+extension ViewController {
+    
     func filterContentForSearchText(_ searchText: String, genre: Movie.Genre? = nil) {          // 7
         filteredMovies = movies.filter { (movie) -> Bool in
             let doesGenreMatch = genre == .all || movie.genre == genre                                              // 15
@@ -100,7 +149,7 @@ class ViewController: UIViewController {
                 return doesGenreMatch && movie.title.lowercased().contains(searchText.lowercased())
             }
         }
-
+        
         tableView.reloadData()
     }
 }
@@ -110,7 +159,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {                                                                                            // 10
+            searchFooter.setIsFilteringToShow(filteredItemCount: filteredMovies.count, of: movies.count)            // 28
             return filteredMovies.count
+        } else {
+            searchController.searchBar.selectedScopeButtonIndex = 0
+            searchFooter.setNotFiltering()                                                                          // 29
         }
         
         return movies.count
